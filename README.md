@@ -3,6 +3,12 @@ This library provide an easy way to read invoices on .xml files, based on the An
 
 This is the structure to Entities, contains the most significant attributes of the XML files, the attributes mark as "Required" is the minium information that appear in the entities.
 
+## Installation
+[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/1.0.0)
+```
+PM > Install-Package XML-Invoices-Reader
+```
+
 ##Entities Structure:
 
 ### Concepto:
@@ -105,10 +111,3 @@ using LectorFacturasXML.Entidades;
 
 Factura invoice = LeerFacturaXML.ObtenerDatosFactura("localPathXmlFile");
 ```
-
-## Installation
-[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/1.0.0)
-```
-PM > Install-Package XML-Invoices-Reader
-```
-
