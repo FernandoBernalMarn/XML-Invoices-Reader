@@ -98,3 +98,11 @@ Importe (Required, Type: decimal).
 Impuesto (Required, Type: string).
 Tasa (Required, Type: decimal).
 ```
+##Usage
+``` c#
+using LectorFacturasXML;
+using LectorFacturasXML.Entidades;
+
+Factura invoice = LeerFacturaXML.ObtenerDatosFactura("localPathXmlFile");
+```
+
