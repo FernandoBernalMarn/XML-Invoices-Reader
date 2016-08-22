@@ -68,7 +68,7 @@ LugarExpedicion (Required, Type: string).
 	  
 ### Impuestos:
 ```
-Retenciones (Optional, Type: List>Retencion>).
+Retenciones (Optional, Type: List<Retencion>).
 Traslados (Optional, Type: List<Traslado>).
 TotalImpuestosRetenidos (Optional, Type: string).
 TotalImpuestosTrasladados (Optional, Type: string).
