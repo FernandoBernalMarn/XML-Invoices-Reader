@@ -106,3 +106,9 @@ using LectorFacturasXML.Entidades;
 Factura invoice = LeerFacturaXML.ObtenerDatosFactura("localPathXmlFile");
 ```
 
+## Installation
+[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/1.0.0)
+```
+PM > Install-Package XML-Invoices-Reader
+```
+
