@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Xml-invoices-reader. by FernandoBernalMarn</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Xml-invoices-reader.</h1>
+        <h2>This library provide an easy way to read invoices on .xml files, based on the Anexo 20 of the Servicio de Administración Tributarioa (SAT - México).</h2>
+        <a href="https://github.com/FernandoBernalMarn/XML-Invoices-Reader." class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="xml-invoices-reader" class="anchor" href="#xml-invoices-reader" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>XML-Invoices-Reader.</h1>
+
+<p>This library provide an easy way to read invoices on .xml files, based on the Anexo 20 of the Servicio de Administración Tributarioa (SAT - México).</p>
+
+<p>This is the structure to Entities, contains the most significant attributes of the XML files, the attributes mark as "Required" is the minium information that appear in the entities.</p>
+
+<h2>
+<a id="entities-structure" class="anchor" href="#entities-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Entities Structure:</h2>
+
+<h3>
+<a id="concepto" class="anchor" href="#concepto" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Concepto:</h3>
+
+<ul>
+<li>Cantidad (Required, Type: decimal).</li>
+<li>Unidad (Required, Type: string).</li>
+<li>Desceipcion (Required, Type: string).</li>
+<li>ValorUnitario (Required, Type: decimal).</li>
+</ul>
+
+<h3>
+<a id="conceptos" class="anchor" href="#conceptos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conceptos:</h3>
+
+<ul>
+<li>ListaConceptos (Optional, Type: List).</li>
+</ul>
+
+<h3>
+<a id="domicilio" class="anchor" href="#domicilio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Domicilio:</h3>
+
+<ul>
+<li>Calle (Required, Type: string).</li>
+<li>CodigoPotal (Required, Type: string).</li>
+<li>Colonia (Optional, Type: string).</li>
+<li>Estado (Required, Type: string).</li>
+<li>Localidad (Optional, Type: string).</li>
+<li>Municipio (Required, Type: string).</li>
+<li>NoExterior (Optional, Type: string).</li>
+<li>NoInterior (Optional, Type: string).</li>
+<li>Pais (Required, Type: string).</li>
+</ul>
+
+<h3>
+<a id="emisor" class="anchor" href="#emisor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Emisor:</h3>
+
+<ul>
+<li>RCF (Required).</li>
+<li>Nombre (Optional).</li>
+<li>Domicilio Fiscal (Optional, Type: Entity(Domicilio)).</li>
+<li>ExpedidEn (Optional, Type: Entity(Domicilio)).</li>
+<li>RegimenFiscal (Optional, Type: Entity(RegimenFiscal)).</li>
+</ul>
+
+<h3>
+<a id="factura" class="anchor" href="#factura" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Factura:</h3>
+
+<ul>
+<li>Conceptos (Optional, Type: List).</li>
+<li>DatosFactura (Required, Type: Entity(FacturaXML)).</li>
+<li>Emisor (Required, Type: Entity(Emisor)).</li>
+<li>Impuestos (Required, Type: Entity(Impuestos)).</li>
+<li>NombreArchivo (Required, Type: string).</li>
+</ul>
+
+<h3>
+<a id="facturaxml" class="anchor" href="#facturaxml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FacturaXML:</h3>
+
+<ul>
+<li>Serie (Optional, Type: string).</li>
+<li>Folio (Optional, Type: string).</li>
+<li>Fecha (Required, Type: DateTime).</li>
+<li>Sello (Required, Type: string).</li>
+<li>FormaDePago (Required, Type: string).</li>
+<li>NoCertificado (Required, Type: string).</li>
+<li>Certificado (Required, Type: string).</li>
+<li>CondicionesDePago (Optional, Type: string).</li>
+<li>Subtotal (Optional, Type: decimal).</li>
+<li>Moneda (Optional, Type: string).</li>
+<li>Total (Required, Type: decimal).</li>
+<li>MetodoDePago (Required, Type: string).</li>
+<li>LugarExpedicion (Required, Type: string).</li>
+</ul>
+
+<h3>
+<a id="impuestos" class="anchor" href="#impuestos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Impuestos:</h3>
+
+<ul>
+<li>Retenciones (Optional, Type: List).</li>
+<li>Traslados (Optional, Type: List).</li>
+<li>TotalImpuestosRetenidos (Optional, Type: string).</li>
+<li>TotalImpuestosTrasladados (Optional, Type: string).</li>
+</ul>
+
+<h3>
+<a id="receptor" class="anchor" href="#receptor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Receptor:</h3>
+
+<ul>
+<li>RFC (Required, Type: string).</li>
+<li>Nombre (Optional, Type: string).</li>
+<li>Domicilio (Optional, Type: Entity(Domicilio)).</li>
+</ul>
+
+<h3>
+<a id="regimenfiscal" class="anchor" href="#regimenfiscal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RegimenFiscal:</h3>
+
+<ul>
+<li>Regimen (Required, Type: string).</li>
+</ul>
+
+<h3>
+<a id="retencion" class="anchor" href="#retencion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retencion:</h3>
+
+<ul>
+<li>Importe (Required, Type: decimal).</li>
+<li>Impuesto (Required, Type: string).</li>
+</ul>
+
+<h3>
+<a id="traslado" class="anchor" href="#traslado" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Traslado:</h3>
+
+<ul>
+<li>Importe (Required, Type: decimal).</li>
+<li>Impuesto (Required, Type: string).</li>
+<li>Tasa (Required, Type: decimal).</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/FernandoBernalMarn/XML-Invoices-Reader./zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/FernandoBernalMarn/XML-Invoices-Reader./tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/FernandoBernalMarn/XML-Invoices-Reader."></a> is maintained by <a href="https://github.com/FernandoBernalMarn">FernandoBernalMarn</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
