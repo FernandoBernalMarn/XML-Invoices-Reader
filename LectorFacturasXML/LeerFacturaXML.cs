@@ -9,31 +9,21 @@ namespace LectorFacturasXML
     public class LeerFacturaXML
     {
         /// <summary>
-        /// 
+        /// Return data to xml file on XmlDocument data type.
         /// </summary>
-        /// <param name="rutaLocalFactura"></param>
+        /// <param name="factura"> XmlDocument that contain info. </param>
+        /// <param name="nameFile"> File name to set into Factura.NombreArchivo </param>
         /// <returns></returns>
-        public static Factura ObtenerDatosFactura(string rutaLocalFactura)
+        public static Factura ObtenerDatosFactura(XmlDocument factura, string nameFile)
         {
             try
             {
-                var path = Path.GetDirectoryName(rutaLocalFactura);
-
-                if (!Directory.Exists(path))
-                    throw new DirectoryNotFoundException("El direcotrio no existe.");
-
-                if (!File.Exists(rutaLocalFactura))
-                    throw new FileNotFoundException("El archivo " + Path.GetFileName(rutaLocalFactura) + " no existe.", Path.GetFileName(rutaLocalFactura));
-
                 Factura datos = new Factura();
-
-                XmlDocument factura = new XmlDocument();
-                factura.Load(rutaLocalFactura);
 
                 var FirstNode = factura.GetElementsByTagName("cfdi:Comprobante");
                 var ChilNodes = FirstNode[0].ChildNodes;
 
-                datos.NombreArchivo = Path.GetFileName(rutaLocalFactura);
+                datos.NombreArchivo = nameFile;
 
                 datos.DatosFactura = new FacturaXML() {
                     Certificado = FirstNode[0].Attributes.Cast<XmlAttribute>().Where(x => x.Name.ToLower().Equals("certificado")).Select(x => x.Value).FirstOrDefault(),
