@@ -108,6 +108,19 @@ Tasa (Required, Type: decimal).
 ``` c#
 using LectorFacturasXML;
 using LectorFacturasXML.Entidades;
+using System.IO;
+using System.Xml;
 
-Factura invoice = LeerFacturaXML.ObtenerDatosFactura("localPathXmlFile");
+// From Local File
+Factura invoiceLocalFile = FromLocalFile.GetData(@"..\localPathXmlFile.xml");
+
+// From String 
+string xmlString = File.ReadAllText(@"..\localPathXmlFile.xml");
+Factura invoiceString = FromString.GetData(xmlString, "FileName");
+
+// From XmlDocument
+XmlDocument xmlDoc = new XmlDocument();
+xmlDoc.Load(@"..\localPathXmlFile.xml");
+
+Factura invoiceXmlDocument = ReadXML.GetData(xmlDoc, "FileName");
 ```
