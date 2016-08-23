@@ -33,7 +33,7 @@ namespace LectorFacturasXML
                 else
                     xmlName = "Invoice-" + DateTime.Now.ToString("MM-dd-yyyy-H-mm-ss");
 
-                return LeerFacturaXML.ObtenerDatosFactura(xmlDoc, xmlName);
+                return ReadXML.GetData(xmlDoc, xmlName);
             }
             catch (Exception ex) { throw (ex); }
         }

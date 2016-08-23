@@ -6,15 +6,15 @@ using System.Xml;
 
 namespace LectorFacturasXML
 {
-    public class LeerFacturaXML
+    public class ReadXML
     {
         /// <summary>
-        /// Return data to xml file on XmlDocument data type.
+        /// Return data to xml file on XmlDocument.
         /// </summary>
         /// <param name="factura"> XmlDocument that contain info. </param>
         /// <param name="nameFile"> File name to set into Factura.NombreArchivo </param>
         /// <returns></returns>
-        public static Factura ObtenerDatosFactura(XmlDocument factura, string nameFile)
+        public static Factura GetData(XmlDocument factura, string nameFile)
         {
             try
             {

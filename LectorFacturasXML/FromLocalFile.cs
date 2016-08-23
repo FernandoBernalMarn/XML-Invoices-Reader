@@ -34,7 +34,7 @@ namespace LectorFacturasXML
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(filePath);
 
-                return LeerFacturaXML.ObtenerDatosFactura(xmlDoc, Path.GetFileName(filePath));
+                return ReadXML.GetData(xmlDoc, Path.GetFileName(filePath));
             }
             catch (Exception ex)
             {

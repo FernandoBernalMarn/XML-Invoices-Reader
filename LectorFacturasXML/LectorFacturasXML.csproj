@@ -52,7 +52,7 @@
     <Compile Include="Entidades\Retencion.cs" />
     <Compile Include="Entidades\Traslado.cs" />
     <Compile Include="FromString.cs" />
-    <Compile Include="LeerFacturaXML.cs" />
+    <Compile Include="ReadXML.cs" />
     <Compile Include="FromLocalFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
