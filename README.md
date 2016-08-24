@@ -2,7 +2,7 @@
 This library provide an easy way to read invoices on .xml files, based on the Anexo 20 of the Servicio de Administración Tributarioa (SAT - México).
 
 ## Installation
-[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/1.0.0)
+[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/)
 ```
 PM > Install-Package XML-Invoices-Reader
 ```
