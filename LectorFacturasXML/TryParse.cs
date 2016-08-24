@@ -5,7 +5,7 @@ namespace LectorFacturasXML
     public static class TryParse
     {
         /// <summary>
-        /// Metodo to validate if the xml string contains a valid formato.
+        /// Method to validate if the xml string contains a valid formato.
         /// </summary>
         /// <param name="xmlString"></param>
         /// <returns></returns>
@@ -24,7 +24,7 @@ namespace LectorFacturasXML
         }
 
         /// <summary>
-        /// Metodo to validate if the given file contains a valid formato.
+        /// Method to validate if the given file contains a valid formato.
         /// </summary>
         /// <param name="localPath"></param>
         /// <returns></returns>
