@@ -1,15 +1,14 @@
 # XML-Invoices-Reader.
 This library provide an easy way to read invoices on .xml files, based on the Anexo 20 of the Servicio de Administración Tributarioa (SAT - México).
 
-This is the structure to Entities, contains the most significant attributes of the XML files, the attributes mark as "Required" is the minium information that appear in the entities.
-
 ## Installation
-[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/1.0.0)
+[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/)
 ```
 PM > Install-Package XML-Invoices-Reader
 ```
 
 ##Entities Structure:
+This is the structure to Entities, contains the most significant attributes of the XML files, the attributes mark as "Required" is the minium information that appear in the entities.
 
 ### Concepto:
 ```
@@ -108,6 +107,19 @@ Tasa (Required, Type: decimal).
 ``` c#
 using LectorFacturasXML;
 using LectorFacturasXML.Entidades;
+using System.IO;
+using System.Xml;
 
-Factura invoice = LeerFacturaXML.ObtenerDatosFactura("localPathXmlFile");
+// From Local File
+Factura invoiceLocalFile = FromLocalFile.GetData(@"..\localPathXmlFile.xml");
+
+// From String 
+string xmlString = File.ReadAllText(@"..\localPathXmlFile.xml");
+Factura invoiceString = FromString.GetData(xmlString, "FileName");
+
+// From XmlDocument
+XmlDocument xmlDoc = new XmlDocument();
+xmlDoc.Load(@"..\localPathXmlFile.xml");
+
+Factura invoiceXmlDocument = ReadXML.GetData(xmlDoc, "FileName");
 ```
