@@ -4,7 +4,7 @@ This library provide an easy way to read invoices on .xml files, based on the An
 _For more information go to [Wiki](https://github.com/FernandoBernalMarn/XML-Invoices-Reader/wiki)_
 
 ## Installation
-[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/) (_version 2.0.0_)
+[Nuget](https://www.nuget.org/packages/XML-Invoices-Reader/) (_version 2.1.0_)
 ```
 PM > Install-Package XML-Invoices-Reader
 ```
